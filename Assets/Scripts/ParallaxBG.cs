@@ -27,6 +27,11 @@ public class ParallaxBG : MonoBehaviour
 
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
+        if (pos.x <= -20)
+        {
+            pos.x = 60;
+        }
+
         transform.position = pos;
     }
 }
