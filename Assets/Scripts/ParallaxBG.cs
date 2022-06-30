@@ -29,7 +29,7 @@ public class ParallaxBG : MonoBehaviour
 
         if (pos.x <= -20)
         {
-            pos.x = 60;
+            pos.x = 80;
         }
 
         transform.position = pos;
