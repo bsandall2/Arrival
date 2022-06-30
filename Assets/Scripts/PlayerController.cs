@@ -115,6 +115,33 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.yellow);
         }
 
+        Vector2 obstOrigin = new Vector2(pos.x, pos.y);
+        RaycastHit2D obsHitX = Physics2D.Raycast(obstOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+        if (obsHitX.collider != null)
+        {
+            Obstacle obstacle = obsHitX.collider.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                hitObstacle(obstacle);
+            }
+        }
+
+        RaycastHit2D obsHitY = Physics2D.Raycast(obstOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime);
+        if (obsHitY.collider != null)
+        {
+            Obstacle obstacle = obsHitY.collider.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                hitObstacle(obstacle);
+            }
+        }
+
         transform.position = pos;
+    }
+
+    void hitObstacle(Obstacle obstacle)
+    {
+        Destroy(obstacle.gameObject);
+        velocity.x *= 0.7f;
     }
 }

@@ -13,6 +13,8 @@ public class GroundScript : MonoBehaviour
 
     bool didGenerateGround = false;
 
+    public Obstacle boxTemplate;
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -67,7 +69,7 @@ public class GroundScript : MonoBehaviour
 
         float h1 = player.jumpVelocity * player.maxHoldJumpTime;
         float t = player.jumpVelocity / -player.gravity;
-        float h2 = player.jumpVelocity * t + (0.5f * (-player.gravity * (t * t)));
+        float h2 = player.jumpVelocity * t + (0.5f * (player.gravity * (t * t)));
         float maxJumpHeight = h1 + h2;
         float maxY = player.transform.position.y + maxJumpHeight;
         maxY *= 0.7f;
@@ -75,9 +77,9 @@ public class GroundScript : MonoBehaviour
         float actualY = Random.Range(minY, maxY);
 
         pos.y = actualY - goCollider.size.y / 2; ;
-        if (pos.y > 2f)
+        if (pos.y > 2)
         {
-            pos.y = 2f;
+            pos.y = 2;
         }
 
         float t1 = t + player.maxHoldJumpTime;
@@ -94,5 +96,18 @@ public class GroundScript : MonoBehaviour
 
         GroundScript goGround = go.GetComponent<GroundScript>();
         goGround.groundHeight = go.transform.position.y + (goCollider.size.y / 2);
+
+        int obstacleNum = Random.Range(0, 3);
+        for (int i=0; i<obstacleNum; i++)
+        {
+            GameObject box = Instantiate(boxTemplate.gameObject);
+            float y = goGround.groundHeight;
+            float halfWidth = goCollider.size.x / 2 - 1;
+            float left = go.transform.position.x - halfWidth;
+            float right = go.transform.position.x + halfWidth;
+            float x = Random.Range(left, right);
+            Vector2 boxPos = new Vector2(x, y);
+            box.transform.position = boxPos;
+        }
     }
 }
