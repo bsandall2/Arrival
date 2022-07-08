@@ -1222,7 +1222,7 @@ MonoBehaviour:
   gravity: -400
   velocity: {x: 0, y: 0}
   maxAcceleration: 5
-  acceleration: 5
+  acceleration: 4
   distance: 0
   jumpVelocity: 40
   maxXVelocity: 50
