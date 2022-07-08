@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public float jumpGroundThreshold = 1;
 
+    public bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,16 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 pos = transform.position;
 
+        if (isDead)
+        {
+            return;
+        }
+
+        if (pos.y < -20)
+        {
+            isDead = true;
+        }
+
         if (!isGrounded)
         {
             if (isHoldingJump)
@@ -78,15 +90,32 @@ public class PlayerController : MonoBehaviour
             if (hit2D.collider != null)
             {
                 GroundScript ground = hit2D.collider.GetComponent<GroundScript>();
-                if (ground)
+                if (ground != null)
                 {
-                    groundHeight = ground.groundHeight;
-                    pos.y = groundHeight;
-                    velocity.y = 0;
-                    isGrounded = true; 
+                    if(pos.y >= ground.groundHeight)
+                    {
+                        groundHeight = ground.groundHeight;
+                        pos.y = groundHeight;
+                        velocity.y = 0;
+                        isGrounded = true;
+                    } 
                 }
             }
             Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+
+            Vector2 wallOrigin = new Vector2(pos.x, pos.y);
+            RaycastHit2D wallHit = Physics2D.Raycast(wallOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+            if (wallHit.collider != null)
+            {
+                GroundScript ground = wallHit.collider.GetComponent<GroundScript>();
+                if (ground != null)
+                {
+                    if (pos.y < ground.groundHeight)
+                    {
+                        velocity.x = 0;
+                    }
+                }
+            }
         }
 
         distance += velocity.x * Time.fixedDeltaTime;
