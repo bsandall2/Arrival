@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4075220705999396270}
   - component: {fileID: 3158527676497604004}
   - component: {fileID: 5815189941592860505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthRegenCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

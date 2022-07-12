@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     public bool isDead = false;
 
+    public LayerMask groundLayerMask;
+    public LayerMask obstacleLayerMask;
+    public LayerMask healthLayerMask;
+
     public PlayerHealthScript playerHealth;
 
     // Start is called before the first frame update
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour
             Vector2 rayOrigin = new Vector2(pos.x + 0.7f, pos.y);
             Vector2 rayDirection = Vector2.up;
             float rayDistance = velocity.y * Time.fixedDeltaTime;
-            RaycastHit2D hit2D = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
+            RaycastHit2D hit2D = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance, groundLayerMask);
             if (hit2D.collider != null)
             {
                 GroundScript ground = hit2D.collider.GetComponent<GroundScript>();
@@ -106,7 +110,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
 
             Vector2 wallOrigin = new Vector2(pos.x, pos.y);
-            RaycastHit2D wallHit = Physics2D.Raycast(wallOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+            RaycastHit2D wallHit = Physics2D.Raycast(wallOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime, groundLayerMask);
             if (wallHit.collider != null)
             {
                 GroundScript ground = wallHit.collider.GetComponent<GroundScript>();
@@ -147,7 +151,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 obstOrigin = new Vector2(pos.x, pos.y);
-        RaycastHit2D obsHitX = Physics2D.Raycast(obstOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+        RaycastHit2D obsHitX = Physics2D.Raycast(obstOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime, obstacleLayerMask);
         if (obsHitX.collider != null)
         {
             Obstacle obstacle = obsHitX.collider.GetComponent<Obstacle>();
@@ -157,7 +161,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        RaycastHit2D obsHitY = Physics2D.Raycast(obstOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime);
+        RaycastHit2D obsHitY = Physics2D.Raycast(obstOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime, obstacleLayerMask);
         if (obsHitY.collider != null)
         {
             Obstacle obstacle = obsHitY.collider.GetComponent<Obstacle>();
@@ -168,7 +172,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 healthOrigin = new Vector2(pos.x, pos.y);
-        RaycastHit2D healthHitX = Physics2D.Raycast(healthOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+        RaycastHit2D healthHitX = Physics2D.Raycast(healthOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime, healthLayerMask);
         if (healthHitX.collider != null)
         {
             HealthCube health = healthHitX.collider.GetComponent<HealthCube>();
@@ -178,7 +182,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        RaycastHit2D healthHitY = Physics2D.Raycast(healthOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime);
+        RaycastHit2D healthHitY = Physics2D.Raycast(healthOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime, healthLayerMask);
         if (healthHitY.collider != null)
         {
             HealthCube health = healthHitY.collider.GetComponent<HealthCube>();
