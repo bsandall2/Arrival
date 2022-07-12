@@ -1372,8 +1372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: -400
   velocity: {x: 0, y: 0}
-  maxAcceleration: 5
-  acceleration: 5
+  maxAcceleration: 6
+  acceleration: 6
   distance: 0
   jumpVelocity: 40
   maxXVelocity: 50
@@ -1385,6 +1385,7 @@ MonoBehaviour:
   holdJumpTimer: 0
   jumpGroundThreshold: 0.5
   isDead: 0
+  playerHealth: {fileID: 811244305}
 --- !u!212 &811244303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1463,7 +1464,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa91d2cb176c6f4ba0307319c4d195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 100
+  currentHealth: 0
+  maxHealth: 100
+  coef: 0.6
+  addOverTime: 0.2
 --- !u!1 &904009155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2222,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
