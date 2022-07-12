@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &325253080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   groundRight: 0
   screenRight: 0
   boxTemplate: {fileID: 3238107286440407016, guid: 66491478d03455549b11c6d862ac9fc7, type: 3}
+  healthCubeTemplate: {fileID: 3158527676497604004, guid: 2a9d960052c0a444c9fba250d3a47bb1, type: 3}
 --- !u!1 &689433448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &731511996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,11 +1373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: -400
   velocity: {x: 0, y: 0}
-  maxAcceleration: 6
-  acceleration: 6
+  maxAcceleration: 4
+  acceleration: 4
   distance: 0
   jumpVelocity: 40
-  maxXVelocity: 50
+  maxXVelocity: 100
   groundHeight: 10
   isGrounded: 0
   isHoldingJump: 0
@@ -1659,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &964612541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1756,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &1010346359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1853,7 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &1022305199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2661,7 +2662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafabd05953166548bde5990f7c47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 8
+  depth: 4
 --- !u!212 &1394668434
 SpriteRenderer:
   m_ObjectHideFlags: 0

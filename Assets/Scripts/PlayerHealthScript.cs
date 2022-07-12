@@ -38,6 +38,6 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void PlayerHit()
     {
-        currentHealth -= 5;
+        currentHealth -= 10;
     }
 }

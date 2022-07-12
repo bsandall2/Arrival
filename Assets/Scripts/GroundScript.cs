@@ -14,6 +14,8 @@ public class GroundScript : MonoBehaviour
     bool didGenerateGround = false;
 
     public Obstacle boxTemplate;
+    public HealthCube healthCubeTemplate;
+    
 
     private void Awake()
     {
@@ -53,12 +55,11 @@ public class GroundScript : MonoBehaviour
             if (groundRight < screenRight)
             {
                 didGenerateGround = true;
-                generateGround();
+                generateGround();               
             }
         }
 
-        transform.position = pos;
-        
+        transform.position = pos;    
     }
 
     void generateGround()
@@ -107,7 +108,20 @@ public class GroundScript : MonoBehaviour
             float right = go.transform.position.x + halfWidth;
             float x = Random.Range(left, right);
             Vector2 boxPos = new Vector2(x, y);
-            box.transform.position = boxPos;
+            box.transform.position = boxPos;           
+        }
+
+        int healthNum = Random.Range(0, 2);
+        for (int i = 0; i <healthNum; i++)
+        {
+            GameObject healthBox = Instantiate(healthCubeTemplate.gameObject);
+            float y = goGround.groundHeight;
+            float halfWidth = goCollider.size.x / 2 - 1;
+            float left = go.transform.position.x - halfWidth;
+            float right = go.transform.position.x + halfWidth;
+            float x = Random.Range(left, right);
+            Vector2 boxPos = new Vector2(x, y);
+            healthBox.transform.position = boxPos;
         }
     }
 }
