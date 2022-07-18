@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
 
     public PlayerHealthScript playerHealth;
 
-    public AudioClip jumpEffect;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -51,7 +49,6 @@ public class PlayerController : MonoBehaviour
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
                 holdJumpTimer = 0;
-                AudioSource.PlayClipAtPoint(jumpEffect, transform.position);
             }          
        }
 
@@ -203,6 +200,7 @@ public class PlayerController : MonoBehaviour
         Destroy(obstacle.gameObject);
         velocity.x *= 0.7f;
         playerHealth.GetComponent<PlayerHealthScript>().PlayerHit();
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
     }
 
     void hitHealth(HealthCube health)
