@@ -3328,6 +3328,18 @@ MonoBehaviour:
     pitch: 1.25
     source: {fileID: 0}
     loop: 0
+  - name: PlayerHeal
+    clip: {fileID: 8300000, guid: dd7e06bd77f6bc64fb18a9776cc89e3d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: d44359e4391c9e8449bbc6157c411bce, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   - name: Game Theme
     clip: {fileID: 8300000, guid: fc13e4b198854cb43b36eda71dca0e9d, type: 3}
     volume: 0.4

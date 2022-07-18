@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
                 holdJumpTimer = 0;
+                FindObjectOfType<AudioManager>().Play("PlayerJump");
             }          
        }
 
@@ -208,5 +209,6 @@ public class PlayerController : MonoBehaviour
         Destroy(health.gameObject);
         playerHealth.currentHealth += 20;
         velocity.x *= 1.05f;
+        FindObjectOfType<AudioManager>().Play("PlayerHeal");
     }
 }
