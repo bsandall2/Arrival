@@ -6,21 +6,11 @@ public class HealthCube : MonoBehaviour
 {
     PlayerController player;
 
+    public AudioClip soundEffect;
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -34,5 +24,10 @@ public class HealthCube : MonoBehaviour
         }
 
         transform.position = pos;
+    }
+
+    public void HitSound()
+    {
+        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 }

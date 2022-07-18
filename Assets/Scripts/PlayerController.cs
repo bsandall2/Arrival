@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        float currentPHealth = playerHealth.currentHealth;       
+        float currentPHealth = playerHealth.currentHealth;        
     }
 
     // Update is called once per frame
@@ -200,11 +200,14 @@ public class PlayerController : MonoBehaviour
         Destroy(obstacle.gameObject);
         velocity.x *= 0.7f;
         playerHealth.GetComponent<PlayerHealthScript>().PlayerHit();
+        obstacle.HitSound();
     }
 
     void hitHealth(HealthCube health)
     {
         Destroy(health.gameObject);
         playerHealth.currentHealth += 20;
+        health.HitSound();
+        velocity.x *= 1.05f;
     }
 }
