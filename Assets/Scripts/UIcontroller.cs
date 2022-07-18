@@ -12,6 +12,8 @@ public class UIcontroller : MonoBehaviour
     GameObject results;
     Text finalDistanceText;
 
+    public bool activePauseMusic = false;
+
     public void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -19,12 +21,13 @@ public class UIcontroller : MonoBehaviour
 
         finalDistanceText = GameObject.Find("FinalDistanceText").GetComponent<Text>();
         results = GameObject.Find("Results");
-        results.SetActive(false);       
+        results.SetActive(false);    
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("GameTheme");
     }
 
     // Update is called once per frame
@@ -32,11 +35,12 @@ public class UIcontroller : MonoBehaviour
     {
         int distance = Mathf.FloorToInt(player.distance);
         distanceText.text = distance + " m";
-        
+
         if (player.isDead)
         {
             results.SetActive(true);
-            finalDistanceText.text = distance + " m";
+            finalDistanceText.text = distance + " m";           
+            FindObjectOfType<AudioManager>().Stop("GameTheme");
         }
     }
 
@@ -47,6 +51,6 @@ public class UIcontroller : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("LevelScene");
+        SceneManager.LoadScene("LevelScene");        
     }
 }

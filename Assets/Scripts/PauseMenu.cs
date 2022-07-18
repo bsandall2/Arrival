@@ -39,6 +39,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        FindObjectOfType<AudioManager>().Pause("GameTheme");
+        FindObjectOfType<AudioManager>().Play("PauseDeathMenu");
     }
 
     public void ResumeGame()
@@ -46,6 +48,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        FindObjectOfType<AudioManager>().UnPause("GameTheme");
+        FindObjectOfType<AudioManager>().Stop("PauseDeathMenu");
     }
 
     public void GoToMainMenu()
