@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        float currentPHealth = playerHealth.currentHealth;  
+        float currentPHealth = playerHealth.currentHealth;       
     }
 
     // Update is called once per frame
@@ -48,13 +48,13 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
-                holdJumpTimer = 0;
+                holdJumpTimer = 0;               
             }          
        }
 
        if (Input.GetKeyUp(KeyCode.Space))
        {
-            isHoldingJump = false;
+            isHoldingJump = false;                      
        }
     }
 
@@ -73,19 +73,19 @@ public class PlayerController : MonoBehaviour
         }
 
         if (!isGrounded)
-        {
+        {            
             if (isHoldingJump)
-            {
+            {               
                 holdJumpTimer += Time.fixedDeltaTime;
                 if (holdJumpTimer >= maxHoldJumpTime)
                 {
                     isHoldingJump = false;
-                }
+                }               
             }
 
             pos.y += velocity.y * Time.fixedDeltaTime;
             if (!isHoldingJump)
-            {
+            {                
                 velocity.y += gravity * Time.fixedDeltaTime;
             }
 
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
             {
                 isGrounded = false;
             }
-            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.yellow);
+            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.yellow);       
         }
 
         Vector2 obstOrigin = new Vector2(pos.x, pos.y);
