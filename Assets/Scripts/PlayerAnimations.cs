@@ -6,11 +6,12 @@ public class PlayerAnimations : MonoBehaviour
 {
     private Animator anim;
     PlayerController player;
+    public float animSpeed;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();        
     }
 
     // Update is called once per frame
@@ -19,12 +20,14 @@ public class PlayerAnimations : MonoBehaviour
         if (player.isGrounded == false)
         {
             anim.SetTrigger("Jumping");
-            anim.SetBool("isRunning", false);
         }
 
         if (player.isGrounded == true)
         {
             anim.SetBool("isRunning", true);
         }
+
+        animSpeed *= player.velocity.x;
+        anim.speed = animSpeed;
     }
 }
