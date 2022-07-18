@@ -6,8 +6,6 @@ public class HealthCube : MonoBehaviour
 {
     PlayerController player;
 
-    public AudioClip soundEffect;
-
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -24,10 +22,5 @@ public class HealthCube : MonoBehaviour
         }
 
         transform.position = pos;
-    }
-
-    public void HitSound()
-    {
-        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 }

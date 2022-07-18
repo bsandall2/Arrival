@@ -33,7 +33,7 @@ public class PlayerHealthScript : MonoBehaviour
             player.velocity.x = 0;
         }
 
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
     }
 
     public void PlayerHit()
