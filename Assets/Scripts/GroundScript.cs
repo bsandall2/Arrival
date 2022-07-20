@@ -72,7 +72,7 @@ public class GroundScript : MonoBehaviour
 
             float h1 = player.jumpVelocity * player.maxHoldJumpTime;
             float t = player.jumpVelocity / -player.gravity;
-            float h2 = player.jumpVelocity * t + (0.5f * (player.gravity * (t * t)));
+            float h2 = player.jumpVelocity * t + (0.3f * (player.gravity * (t * t)));
             float maxJumpHeight = h1 + h2;
             float maxY = player.transform.position.y + maxJumpHeight;
             maxY *= 0.7f;
@@ -105,7 +105,7 @@ public class GroundScript : MonoBehaviour
              {
                  GameObject box = Instantiate(boxTemplate.gameObject);
                 float y = goGround.groundHeight;
-                float halfWidth = goCollider.size.x / 2 - 1;
+                float halfWidth = goCollider.size.x / 4 - 1;
                 float left = go.transform.position.x - halfWidth;
                 float right = go.transform.position.x + halfWidth;
                 float x = Random.Range(left, right);
@@ -118,7 +118,7 @@ public class GroundScript : MonoBehaviour
             {
                 GameObject healthBox = Instantiate(healthCubeTemplate.gameObject);
                 float y = goGround.groundHeight;
-                float halfWidth = goCollider.size.x / 2 - 1;
+                float halfWidth = goCollider.size.x / 3 - 1;
                 float left = go.transform.position.x - halfWidth;
                 float right = go.transform.position.x + halfWidth;
                 float x = Random.Range(left, right);
