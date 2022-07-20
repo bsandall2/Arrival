@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
        if (isGrounded || groundDistance <= jumpGroundThreshold)
        {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 isGrounded = false;
                 velocity.y = jumpVelocity;
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             }          
        }
 
-       if (Input.GetKeyUp(KeyCode.Space))
+       if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
        {
             isHoldingJump = false;                      
        }
