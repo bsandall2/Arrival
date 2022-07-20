@@ -15,7 +15,10 @@ public class GroundScript : MonoBehaviour
 
     public Obstacle boxTemplate;
     public HealthCube healthCubeTemplate;
-    
+
+    public int amountObstacle = 2;
+    public int amountHealth = 2;
+    public float travelledDistance = 1000;
 
     private void Awake()
     {
@@ -59,7 +62,15 @@ public class GroundScript : MonoBehaviour
             }
         }
 
-        transform.position = pos;    
+        transform.position = pos; 
+        
+        if (player.distance >= travelledDistance )
+        {
+            amountObstacle += 1;
+            amountHealth += 1;
+            travelledDistance += 1000;
+            return;
+        }
     }
 
     void generateGround()
@@ -72,7 +83,7 @@ public class GroundScript : MonoBehaviour
 
             float h1 = player.jumpVelocity * player.maxHoldJumpTime;
             float t = player.jumpVelocity / -player.gravity;
-            float h2 = player.jumpVelocity * t + (0.3f * (player.gravity * (t * t)));
+            float h2 = player.jumpVelocity * t + (0.6f * (player.gravity * (t * t)));
             float maxJumpHeight = h1 + h2;
             float maxY = player.transform.position.y + maxJumpHeight;
             maxY *= 0.7f;
@@ -100,20 +111,24 @@ public class GroundScript : MonoBehaviour
             GroundScript goGround = go.GetComponent<GroundScript>();
             goGround.groundHeight = go.transform.position.y + (goCollider.size.y / 2);
 
-            int obstacleNum = Random.Range(0, 3);
-            for (int i=0; i<obstacleNum; i++)
-             {
-                 GameObject box = Instantiate(boxTemplate.gameObject);
-                float y = goGround.groundHeight;
-                float halfWidth = goCollider.size.x / 4 - 1;
-                float left = go.transform.position.x - halfWidth;
-                float right = go.transform.position.x + halfWidth;
-                float x = Random.Range(left, right);
-                Vector2 boxPos = new Vector2(x, y);
-                box.transform.position = boxPos;           
+            if (player.distance >= 230)
+            {
+                int obstacleNum = Random.Range(0, amountObstacle);
+                for (int i = 0; i < obstacleNum; i++)
+                {
+                    GameObject box = Instantiate(boxTemplate.gameObject);
+                    float y = goGround.groundHeight;
+                    float halfWidth = goCollider.size.x / 4 - 1;
+                    float left = go.transform.position.x - halfWidth;
+                    float right = go.transform.position.x + halfWidth;
+                    float x = Random.Range(left, right);
+                    Vector2 boxPos = new Vector2(x, y);
+                    box.transform.position = boxPos;
+                }
+
             }
 
-            int healthNum = Random.Range(0, 2);
+            int healthNum = Random.Range(0, amountHealth);
             for (int i = 0; i <healthNum; i++)
             {
                 GameObject healthBox = Instantiate(healthCubeTemplate.gameObject);
