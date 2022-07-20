@@ -1864,7 +1864,7 @@ MonoBehaviour:
   maxAcceleration: 3
   acceleration: 3
   distance: 0
-  jumpVelocity: 30
+  jumpVelocity: 35
   maxXVelocity: 50
   groundHeight: 10
   isGrounded: 0
