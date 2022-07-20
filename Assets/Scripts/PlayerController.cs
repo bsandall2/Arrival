@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float maxHoldJumpTime = 0.4f;
     public float maxMaxHoldJumpTime = 0.4f;
     public float holdJumpTimer = 0.0f;
+    public bool isJumping = false;
 
     public float jumpGroundThreshold = 1;
 
@@ -29,10 +30,12 @@ public class PlayerController : MonoBehaviour
 
     public PlayerHealthScript playerHealth;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Awake()
     {
-        float currentPHealth = playerHealth.currentHealth;        
+        float currentPHealth = playerHealth.currentHealth;
     }
 
     // Update is called once per frame
@@ -56,6 +59,16 @@ public class PlayerController : MonoBehaviour
        if (Input.GetKeyUp(KeyCode.Space))
        {
             isHoldingJump = false;                      
+       }
+
+       if (isGrounded == false)
+       {
+           isJumping = true;
+       }
+
+        if (isGrounded == true)
+       {
+           isJumping = false;
        }
     }
 

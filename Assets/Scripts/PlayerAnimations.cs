@@ -10,24 +10,21 @@ public class PlayerAnimations : MonoBehaviour
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GameObject.Find("PlayerSprite").GetComponent<Animator>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();        
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        if (player.isGrounded == false)
+    {  
+        if (player.isJumping == false)
         {
-            anim.SetTrigger("Jumping");
-        }
-
-        if (player.isGrounded == true)
+            anim.CrossFade("PlayerRunANIM", 0, 0);
+        }    
+        
+        if (player.isJumping == true)
         {
-            anim.SetBool("isRunning", true);
-        }
-
-        animSpeed *= player.velocity.x;
-        anim.speed = animSpeed;
+            anim.CrossFade("PlayerJump", 0, 0);
+        }     
     }
+
 }
