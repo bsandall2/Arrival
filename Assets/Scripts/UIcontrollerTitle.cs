@@ -22,4 +22,9 @@ public class UIcontrollerTitle : MonoBehaviour
     {
         SceneManager.LoadScene("LevelScene");
     }
+
+    public void back()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
