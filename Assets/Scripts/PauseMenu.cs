@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     PlayerController player;
     public GameObject pauseMenu;
+    public GameObject optionMenu;
     public static bool isPaused;
 
     // Start is called before the first frame update
@@ -15,7 +16,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         isPaused = false;
-
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(true);       
         Time.timeScale = 0f;
         isPaused = true;
         FindObjectOfType<AudioManager>().Pause("GameTheme");
@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        optionMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
         FindObjectOfType<AudioManager>().UnPause("GameTheme");

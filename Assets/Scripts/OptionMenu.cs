@@ -10,11 +10,12 @@ public class OptionMenu : MonoBehaviour
     public GameObject optionMenu;
     public static bool isPaused;
 
+    public GameObject pause;
+
     void Start()
     {
         optionMenu.SetActive(false);
         isPaused = false;
-
     }
 
     public void GoToOption()

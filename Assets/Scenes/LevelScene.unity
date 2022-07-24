@@ -3736,6 +3736,7 @@ GameObject:
   - component: {fileID: 1055516217}
   - component: {fileID: 1055516216}
   - component: {fileID: 1055516215}
+  - component: {fileID: 1055516214}
   m_Layer: 5
   m_Name: OptionMenu
   m_TagString: Untagged
@@ -3769,6 +3770,20 @@ RectTransform:
   m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1055516214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055516212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5e63497c6e89542aedc7186c58755d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1377285003}
+  volumeToSet: 1
 --- !u!114 &1055516215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6521,6 +6536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1336736622}
+  optionMenu: {fileID: 1055516212}
 --- !u!114 &1908044324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,6 +6551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseRef: {fileID: 1336736622}
   optionMenu: {fileID: 1055516212}
+  pause: {fileID: 1908044318}
 --- !u!1 &1979981125
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,6 +6563,7 @@ GameObject:
   - component: {fileID: 1979981128}
   - component: {fileID: 1979981127}
   - component: {fileID: 1979981126}
+  - component: {fileID: 1979981129}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6618,6 +6636,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979981129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979981125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &2012828778
 GameObject:
   m_ObjectHideFlags: 0
