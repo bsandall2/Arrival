@@ -6,21 +6,28 @@ public class HealthCube : MonoBehaviour
 {
     PlayerController player;
 
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        Animator ani = GetComponent<Animator>();
+        ani.Play("BatteryHover", 0, Random.Range(0.0f, 1.0f));
     }
 
     private void FixedUpdate()
     {
-        Vector2 pos = transform.position;
 
-        pos.x -= player.velocity.x * Time.fixedDeltaTime;
-        if (pos.x < -100)
         {
-            Destroy(gameObject);
-        }
+            Vector2 pos = transform.position;
 
-        transform.position = pos;
+            pos.x -= player.velocity.x * Time.fixedDeltaTime;
+            if (pos.x < -100)
+            {
+                Destroy(gameObject);
+            }
+
+            transform.position = pos;
+        }
     }
 }

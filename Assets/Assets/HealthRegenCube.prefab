@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4075220705999396270}
   - component: {fileID: 3158527676497604004}
   - component: {fileID: 5815189941592860505}
+  - component: {fileID: 506548180719734088}
   m_Layer: 8
   m_Name: HealthRegenCube
   m_TagString: Untagged
@@ -74,17 +75,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 600
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.47270346, b: 1, a: 1}
+  m_Sprite: {fileID: 7687644623592212477, guid: c7d746b5ae7194142876fcaa54d39949, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3158527676497604004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed871988d2d267249b0e6f0a92b677b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: a4015e35894293d469e5da553d680a6e, type: 3}
 --- !u!61 &5815189941592860505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,12 +115,31 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.9972038, y: 0.9948683}
   m_EdgeRadius: 0
+--- !u!95 &506548180719734088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956654832107886683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44ca5282ef6c9ef4b8e009c9750dcc8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
