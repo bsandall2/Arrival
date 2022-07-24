@@ -15,13 +15,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
-       {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             if (isPaused)
             {
                 ResumeGame();
@@ -31,7 +32,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-       }
+        }
     }
 
     public void PauseGame()
@@ -54,6 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        isPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
