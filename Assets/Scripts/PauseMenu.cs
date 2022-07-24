@@ -58,5 +58,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Stop("PauseDeathMenu");
+        FindObjectOfType<AudioManager>().Stop("GameTheme");
     }
 }

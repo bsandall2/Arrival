@@ -52,10 +52,14 @@ public class UIcontroller : MonoBehaviour
     public void Quit()
     {
         SceneManager.LoadScene("Menu");
+        FindObjectOfType<AudioManager>().Stop("GameTheme");
+        FindObjectOfType<AudioManager>().Stop("PauseDeathMenu");
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("LevelScene");        
+        SceneManager.LoadScene("LevelScene");
+        FindObjectOfType<AudioManager>().Stop("GameTheme");
+        FindObjectOfType<AudioManager>().Stop("PauseDeathMenu");
     }
 }
