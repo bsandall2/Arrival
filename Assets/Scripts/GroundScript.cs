@@ -117,7 +117,7 @@ public class GroundScript : MonoBehaviour
                 for (int i = 0; i < obstacleNum; i++)
                 {
                     GameObject box = Instantiate(boxTemplate.gameObject);
-                    float y = goGround.groundHeight;
+                    float y = goGround.groundHeight + 1;
                     float halfWidth = goCollider.size.x / 4 - 1;
                     float left = go.transform.position.x - halfWidth;
                     float right = go.transform.position.x + halfWidth;
@@ -132,7 +132,7 @@ public class GroundScript : MonoBehaviour
             for (int i = 0; i <healthNum; i++)
             {
                 GameObject healthBox = Instantiate(healthCubeTemplate.gameObject);
-                float y = goGround.groundHeight; 
+                float y = goGround.groundHeight + 1; 
                 float halfWidth = goCollider.size.x / 3 - 1;
                 float left = go.transform.position.x - halfWidth;
                 float right = go.transform.position.x + halfWidth;
