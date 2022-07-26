@@ -2483,6 +2483,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerHealth: {fileID: 811244305}
+  deathBox: {fileID: 0}
 --- !u!212 &811244303
 SpriteRenderer:
   m_ObjectHideFlags: 0

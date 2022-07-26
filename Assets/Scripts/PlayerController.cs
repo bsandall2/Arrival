@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerHealthScript playerHealth;
 
+    public GameObject deathBox;
+
     private Animator anim;
 
     // Start is called before the first frame update
