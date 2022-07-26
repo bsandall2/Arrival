@@ -11,13 +11,12 @@ public class RandomBuildingSprite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rand = Random.Range(0, BuildingSprite.Length);
-        GetComponent<SpriteRenderer>().sprite = BuildingSprite[rand];
+        ChangeBuilding();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeBuilding()
     {
-        
+        rand = Random.Range(0, BuildingSprite.Length);
+        GetComponent<SpriteRenderer>().sprite = BuildingSprite[rand];
     }
 }

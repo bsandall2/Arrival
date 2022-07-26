@@ -7,10 +7,12 @@ public class ParallaxBG : MonoBehaviour
     public float depth = 1;
 
     PlayerController player;
+    RandomBuildingSprite buildingSprite;
 
     public void Awake()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        buildingSprite = GetComponent<RandomBuildingSprite>();
     }
 
     // Start is called before the first frame update
@@ -27,9 +29,10 @@ public class ParallaxBG : MonoBehaviour
 
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
-        if (pos.x <= -20)
+        if (pos.x <= -40)
         {
             pos.x = 80;
+            buildingSprite.ChangeBuilding();
         }
 
         transform.position = pos;
